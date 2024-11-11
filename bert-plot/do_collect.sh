@@ -1,0 +1,41 @@
+data="
+│ transpeed-s             │ edp    │        ['out.txt20231120074358','out.txt20231120074400','out.txt20231120074403','out.txt20231120074405','out.txt20231120074408','out.txt20231120082237','out.txt20231120082243','out.txt20231120082248','out.txt20231120082254','out.txt20231120082300'] │100 │ 4386363487027.2 │
+"
+
+ga_path="/results/Edge/Spotlight-GA/EDP/TRANSFORMER/"
+## edp
+ga_gemm_files="out.txt20231115114945 out.txt20231115114950 out.txt20231115114955 out.txt20231115115000 out.txt20231115115005 out.txt20231115120147 out.txt20231115120152 out.txt20231115120157 out.txt20231115120202 out.txt20231115120207"
+ga_gemm_files="out.txt20231116130530 out.txt20231116130525 out.txt20231116130540 out.txt20231116130545 out.txt20231116130535 out.txt20231116131729 out.txt20231116131724 out.txt20231116131734 out.txt20231116131744 out.txt20231116131739"
+ga_gemm_files="out.txt20231117031616 out.txt20231117031621 out.txt20231117031626 out.txt20231117031631 out.txt20231117031636 out.txt20231117032710 out.txt20231117032715 out.txt20231117032720 out.txt20231117032725 out.txt20231117032731"
+ga_gemm_files="out.txt20231117160045  out.txt20231117160030  out.txt20231117160040  out.txt20231117160025  out.txt20231117160035  out.txt20231117165321  out.txt20231117165306  out.txt20231117165311  out.txt20231117165316      out.txt20231117165301"
+
+
+
+gr_path="/results/Edge/Spotlight-R/EDP/TRANSFORMER/"
+## edp
+gr_gemm_files="out.txt20231115123427   out.txt20231115123432   out.txt20231115123437   out.txt20231115123442   out.txt20231115123447   out.txt20231115125759   out.txt20231115125805   out.txt20231115125809   out.txt20231115125814   out.txt20231115125820"
+gr_gemm_files="out.txt20231116134907 out.txt20231116134912 out.txt20231116134917 out.txt20231116134922 out.txt20231116134927 out.txt20231116135901 out.txt20231116135916 out.txt20231116135906 out.txt20231116135911 out.txt20231116135921"
+gr_gemm_files="out.txt20231117035839 out.txt20231117035844 out.txt20231117035850 out.txt20231117035854 out.txt20231117035859 out.txt20231117040836 out.txt20231117040841 out.txt20231117040846 out.txt20231117040851 out.txt20231117040856"
+gr_gemm_files="out.txt20231117185613  out.txt20231117185603  out.txt20231117185558  out.txt20231117185553  out.txt20231117185608  out.txt20231117193354  out.txt20231117193359  out.txt20231117193344  out.txt20231117193349  out.txt20231117193405"
+
+gv_path="/results/Edge/Spotlight-V/EDP/TRANSFORMER/"
+## edp
+gv_gemm_files="out.txt20231115160327   out.txt20231115160331   out.txt20231115160337   out.txt20231115160342   out.txt20231115160349   out.txt20231115172214   out.txt20231115172219   out.txt20231115172224   out.txt20231115172231   out.txt20231115172236"
+gv_gemm_files="out.txt20231116152517 out.txt20231116152512 out.txt20231116152523 out.txt20231116152528 out.txt20231116152534 out.txt20231116160330 out.txt20231116160336 out.txt20231116160353 out.txt20231116160341 out.txt20231116160347"
+gv_gemm_files="out.txt20231117053559 out.txt20231117053604 out.txt20231117053610 out.txt20231117053615 out.txt20231117053621 out.txt20231117062844 out.txt20231117062850 out.txt20231117062855 out.txt20231117062901 out.txt20231117062907"
+
+
+transpeed_s_path="/results/Edge/Spotlight/EDP/TRANSFORMER/"
+transpeed_s_gemm_files=`echo $data | grep transpeed-s | awk -F'│' '{print $4}' | sed "s/','/ /g; s/\['//; s/'\]//"`
+
+transpeed_path="/results/Edge/Spotlight-HEBO/EDP/TRANSFORMER/"
+## edp
+transpeed_gemm_files="out.txt20231115223207   out.txt20231115223204   out.txt20231115223203   out.txt20231115223200   out.txt20231115223212   out.txt20231116074758   out.txt20231116074808   out.txt20231116074805   out.txt20231116074800   out.txt20231116074803"
+transpeed_gemm_files="out.txt20231117083430  out.txt20231117083433  out.txt20231117083435  out.txt20231117083438  out.txt20231117083441  out.txt20231117091743  out.txt20231117091748  out.txt20231117091754  out.txt20231117091800  out.txt20231117091806"
+transpeed_gemm_files="out.txt20231118034550  out.txt20231118034553  out.txt20231118034548  out.txt20231118034558  out.txt20231118034555"
+
+#sh collect_ablation_metric.sh $ga_path "$ga_gemm_files" > ablation_ga_edp_metric1118.txt
+#sh collect_ablation_metric.sh $gr_path "$gr_gemm_files" > ablation_gr_edp_metric1118.txt
+#sh collect_ablation_metric.sh $gv_path "$gv_gemm_files" > ablation_gv_edp_metric1118.txt
+#sh collect_ablation_metric.sh $transpeed_path "$transpeed_gemm_files" > ablation_transpeed_edp_metric1118.txt
+sh collect_ablation_metric.sh $transpeed_s_path "$transpeed_s_gemm_files" > ablation_transpeed_s_edp1121.txt
